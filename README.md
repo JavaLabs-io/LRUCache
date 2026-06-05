@@ -12,8 +12,10 @@ A cache that holds a fixed number of items. When it gets full and a new item com
 
 ## Usage
 
-- `put(key, value)` — add an item to the cache
+-`put(key, value)` — add an item to the cache
 - `get(key)` — get an item by key, returns `-1` if it doesn't exist or was removed
+- `displayCache()` — show the current cache contents
+- `displayStats()` — show cache hits and misses
 
 ---
 
@@ -26,13 +28,15 @@ cache.put(1, 10);
 cache.put(2, 20);
 cache.put(3, 30);
 
-cache.get(1);     // 10
+cache.get(1);     // hit
 cache.put(4, 40); // cache is full — removes key 2 (used least recently)
-cache.get(2);     // -1 (removed)
-cache.get(3);     // 30
-cache.get(4);     // 40
-```
 
+cache.get(2);     // miss
+cache.get(3);     // hit
+cache.get(4);     // hit
+
+cache.displayCache();
+cache.displayStats();
 ---
 
 ## Run it
